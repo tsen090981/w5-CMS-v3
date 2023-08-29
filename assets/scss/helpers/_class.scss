@@ -1,0 +1,215 @@
+//字型
+.font-Roboto{
+    font-family: 'Roboto', sans-serif;
+}
+//字級
+.fs-ml{
+    font-size: 20px;
+}
+.fs-m{
+    font-size: 18px;
+}
+.fs-s{
+    font-size: 14px;
+}
+.fs-xs{
+    font-size: 12px;
+}
+
+//間距 padding
+.ps-ml{
+    padding-left: 32px;
+}
+.pe-ml{
+    padding-right: 32px;
+}
+.pt-ml{
+    padding-top: 32px;
+}
+.pb-ml{
+    padding-bottom: 32px;
+}
+.px-ml{
+    padding: 0 32px;
+}
+.py-ml{
+    padding: 32px 0;
+}
+.p-ml{
+    padding: 32px;
+}
+.ps-s{
+    padding-left: 12px;
+}
+.pe-s{
+    padding-right: 12px;
+}
+.pt-s{
+    padding-top: 12px;
+}
+.pb-s{
+    padding-bottom: 12px;
+}
+.px-s{
+    padding: 0 12px;
+}
+.py-s{
+    padding: 12px 0;
+}
+.p-s{
+    padding: 12px;
+}
+//間距 margin
+.ms-ml{
+    margin-left: 32px;
+}
+.me-ml{
+    margin-right: 32px;
+}
+.mt-ml{
+    margin-top: 32px;
+}
+.mb-ml{
+    margin-bottom: 32px;
+}
+.mx-ml{
+    padding: 0 32px;
+}
+.my-ml{
+    padding: 32px 0;
+}
+.m-ml{
+    margin: 32px;
+}
+
+//顏色
+.color-line{
+    color: #CED4DA;
+}
+.border-line{
+    border-color: $color-line !important;
+}
+
+//背景
+.bg{
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.bg-cover{
+    background-size: cover;
+}
+.bg-logo{
+    background-image: url(/assets/images/logo-ANSWER.svg);
+}
+.bg-person-andy{
+    background-image: url(/assets/images/andychen.jpeg);
+}
+.bg-person-emily{
+    background-image: url(/assets/images/emilywang.jpeg);
+}
+.bg-modal-person-emir{
+    background-image: url(/assets/images/emir.jpeg);
+}
+
+//sizing
+.logo-size{
+    @include size(151px, 40px);
+}
+.person-size{
+    @include size(40px, 40px);
+    border-radius: 100%;
+}
+.modal-person-size{
+    @include size(141px, 141px);
+}
+
+//hover
+a.nav-hover{
+    transition: .5s;
+    &:hover{
+        color: $color-primary;
+        &::before{
+            content: "";
+            background-color: $color-primary;
+            @include size(4px, 32px);
+            @include align-center;
+            left: -32px;
+        }
+    }
+}
+a.hover-color-success{
+    &:hover{
+        color: $color-primary;
+    }
+}
+
+//active
+a.nav-active{
+    color: $color-primary;
+    &::before{
+        content: "";
+        background-color: $color-primary;
+        @include size(4px, 32px);
+        @include align-center;
+        left: -32px;
+    }
+}
+a.list-group-item.active{
+    background-color: $color-light;
+    border-color: $color-line;
+}
+a.page-link-active{
+    background-color: $color-primary;
+    color: white !important;
+    &:hover{
+        background-color: $color-primary;
+    }
+}
+.form-check-input{
+    &:checked{
+        background-color: $color-primary;
+        border: none;
+    }
+}
+
+//disable
+.btn-outline-secondary{
+    &:disabled{
+        color: $color-line;
+    }
+}
+
+//偽元素
+.dropdown-toggle{
+    &::after{
+        display: none;
+    }
+}
+
+//互動
+.cursor-pointer{
+    cursor: pointer;
+}
+
+//透明度
+.opacity-100{
+    opacity: 1;
+}
+
+//collapse
+.collapsed{
+    .icon_more{
+        display: block;
+    }
+}
+.collapsed{
+    .icon_less{
+        display: none;
+    }
+}
+.icon_more{
+    display: none;
+}
+.icon_less{
+    display: block;
+}

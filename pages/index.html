@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>admin</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <%- include('./layout/header'); -%>
+        <div class="col-9 d-flex flex-column justify-content-between pb-ml ps-0 pe-0">
+          <div class="">
+            <div class="p-ml mb-2 d-flex align-items-center justify-content-between">
+              <div class="d-flex align-items-center">
+                <h4 class="fs-4 fw-bold me-5">Admin</h4>
+                <!-- Button trigger modal -->
+                <a class="d-flex align-items-center cursor-pointer" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <span class="material-symbols-rounded me-2 text-success">
+                    add
+                  </span>
+                  <h6 class="fw-bold fs-6">Add New Admin</h6>
+                </a>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content">
+                      <div class="modal-header p-ml">
+                        <h5 class="modal-title fw-bold fs-4" id="exampleModalLabel">New Admin</h5>
+                        <a class="cursor-pointer" data-bs-dismiss="modal" aria-label="Close">
+                          <span class="material-symbols-rounded fs-4">
+                            close
+                          </span>
+                        </a>
+                      </div>
+                      <div class="modal-body px-ml">
+                        <h4 class="fs-ml fw-bold my-3">Account</h4>
+                        <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label fs-s">Name</label>
+                          <input type="text" class="form-control form-control-lg rounded-0 border-dark" id="exampleFormControlInput1">
+                        </div>
+                        <div class="">
+                          <label for="exampleFormControlInput1" class="form-label fs-s">Email</label>
+                          <input type="email" class="form-control form-control-lg rounded-0 border-dark" id="exampleFormControlInput1">
+                        </div>
+                        <hr class="color-line my-4 opacity-100">
+                        <h4 class="fs-ml fw-bold mb-3">Verification</h4>
+                        <div class="d-flex align-items-center mb-3">
+                          <span class="material-symbols-rounded text-danger me-2 fs-4">
+                            warning
+                          </span>
+                          <h6 class="fs-6 fw-bold">Unverified</h6>
+                        </div>
+                        <button type="button" class="btn btn-outline-success py-3 w-100 border-line rounded-0 fw-bold fs-6">Send Verification Mail</button>
+                        <hr class="color-line my-4 opacity-100">
+                        <h4 class="fs-ml fw-bold mb-3">Access Level</h4>
+                        <select class="form-select p-3 text-secondary" aria-label="Default select example">
+                          <option selected>-Choose access level-</option>
+                          <option value="1">One</option>
+                          <option value="2">Two</option>
+                          <option value="3">Three</option>
+                        </select>
+                        <hr class="color-line my-4 opacity-100">
+                        <h4 class="fs-ml fw-bold mb-3">Custom Access</h4>
+                        <div class="form-check d-flex align-items-center mb-3">
+                          <input class="form-check-input me-2 border-dark rounded-1 border-2" type="checkbox" value="" id="flexCheckDefault">
+                          <label class="form-check-label" for="flexCheckDefault">
+                            Lecture
+                          </label>
+                        </div>
+                        <div class="form-check d-flex align-items-center mb-3">
+                          <input class="form-check-input me-2 border-dark rounded-1 border-2" type="checkbox" value="" id="flexCheckDefault">
+                          <label class="form-check-label" for="flexCheckDefault">
+                            Coupon
+                          </label>
+                        </div>
+                        <div class="form-check d-flex align-items-center mb-3">
+                          <input class="form-check-input me-2 border-dark rounded-1 border-2" type="checkbox" value="" id="flexCheckDefault">
+                          <label class="form-check-label" for="flexCheckDefault">
+                            Message
+                          </label>
+                        </div>
+                        <div class="form-check d-flex align-items-center mb-3">
+                          <input class="form-check-input me-2 border-dark rounded-1 border-2" type="checkbox" value="" id="flexCheckDefault">
+                          <label class="form-check-label" for="flexCheckDefault">
+                            Task Menu
+                          </label>
+                        </div>
+                      </div>
+                      <div class="modal-footer pt-3 pb-3 px-ml">
+                        <button type="button" class="btn btn-outline-success px-ml pt-2 pb-2 fs-6 fw-bold lh-sm" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-success px-ml pt-2 pb-2 fs-6 fw-bold lh-sm">Add</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center">
+                <a href="">
+                  <span class="material-symbols-rounded me-4">
+                  search
+                  </span>
+                </a>
+                <a href="">
+                  <span class="material-symbols-rounded">
+                    notifications_active
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="px-ml">
+              <table class="col-12 table">
+                <thead class="fw-bold border-bottom border-dark">
+                  <tr>
+                    <th scope="col" class="d-flex align-items-center">
+                      <div class="me-1">ID</div>
+                      <a href="">
+                        <span class="material-symbols-rounded fs-m text-success">
+                          arrow_downward
+                        </span>
+                      </a>
+                    </th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Verified</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-bottom border-line">
+                    <th class="py-3" scope="row">#1</th>
+                    <td class="py-3">Emir Wicks</td>
+                    <td class="py-3">emir.wicks@mail.com</td>
+                    <td class="py-3">Yes</td>
+                    <td class="py-3 text-end">
+                      <!-- Button trigger modal -->
+                      <a href="" class="d-inline-block hover-color-success" data-bs-toggle="modal" data-bs-target="#visibilityModal">
+                        <span class="me-4 material-symbols-rounded">
+                          visibility
+                        </span>
+                      </a>
+                      <!-- Modal -->
+                      <div class="modal fade" id="visibilityModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-body p-ml d-flex align-items-center">
+                              
+                              <div class="bg bg-cover bg-modal-person-emir modal-person-size me-4"></div>
+                              <div class="d-flex flex-column align-items-start flex-grow-1 position-relative lh-sm">
+                                <a class="cursor-pointer position-absolute end-0 top-0" data-bs-dismiss="modal" aria-label="Close">
+                                  <span class="material-symbols-rounded fs-4">
+                                    close
+                                  </span>
+                                </a>
+                                <h6 class="fs-6 mb-2">#1</h6>
+                                <h6 class="fs-6">Admin</h6>
+                                <h4 class="fs-4 fw-bold mb-2">Emir Wicks</h4>
+                                <p class="fs-s mb-3 text-secondary">emir.wicks@mail.com</p>
+                                <div class="d-flex align-items-center justify-content-between w-100">
+                                  <p class="fs-s pt-1 pb-1 px-2 bg-light">Verified</p>
+                                  <a class="text-success" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <span class="material-symbols-rounded icon_more">
+                                      expand_more
+                                    </span>
+                                    <span class="material-symbols-rounded icon_less">
+                                      expand_less
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="collapse pe-ml pb-ml" id="collapseExample">
+                              <button type="button" class="btn btn-outline-danger px-ml pt-2 pb-2 lh-sm fs-6 fw-bold me-3" data-bs-dismiss="modal">Deactivate</button>
+                              <button type="button" class="btn btn-success px-ml pt-2 pb-2 lh-sm fs-6 fw-bold">Edit</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- Button trigger modal -->
+                      <a href="" class="d-inline-block hover-color-success" data-bs-toggle="modal" data-bs-target="#edit_Modal">
+                        <span class="material-symbols-rounded">
+                          edit
+                        </span>
+                      </a>
+                      <!-- Modal -->
+                      <div class="modal fade" id="edit_Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable">
+                          <div class="modal-content">
+                            <div class="modal-header p-ml">
+                              <h5 class="modal-title fw-bold fs-4" id="exampleModalLabel">Edit Admin</h5>
+                              <a class="cursor-pointer" data-bs-dismiss="modal" aria-label="Close">
+                                <span class="material-symbols-rounded fs-4">
+                                  close
+                                </span>
+                              </a>
+                            </div>
+                            <div class="modal-body px-ml text-start">
+                              <h4 class="fs-ml fw-bold my-3">Account</h4>
+                              <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label fs-s">Name</label>
+                                <input type="text" class="form-control form-control-lg rounded-0 border-0 bg-light" id="exampleFormControlInput1" disabled readonly value="Emir Wicks">
+                              </div>
+                              <div class="">
+                                <label for="exampleFormControlInput1" class="form-label fs-s">Email</label>
+                                <input type="email" class="form-control form-control-lg rounded-0 border-0 bg-light" id="exampleFormControlInput1" disabled readonly value="emir.wicks@mail.com">
+                              </div>
+                              <hr class="color-line my-4 opacity-100">
+                              <h4 class="fs-ml fw-bold mb-3">Verification</h4>
+                              <div class="d-flex align-items-center mb-3">
+                                <span class="material-symbols-rounded text-success me-2 fs-4">
+                                  check_circle
+                                </span>
+                                <h6 class="fs-6 fw-bold">Unverified</h6>
+                              </div>
+                              <button type="button" class="btn btn-outline-secondary py-3 w-100 border-line rounded-0 fw-bold fs-6" disabled>Send Verification Mail</button>
+                              <hr class="color-line my-4 opacity-100">
+                              <h4 class="fs-ml fw-bold mb-3">Access Level</h4>
+                              <select class="form-select p-3 text-dark" aria-label="Default select example">
+                                <option selected>Admin</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                              </select>
+                              <hr class="color-line my-4 opacity-100">
+                              <h4 class="fs-ml fw-bold mb-3">Custom Access</h4>
+                              <div class="form-check d-flex align-items-center mb-3">
+                                <input class="form-check-input me-2 border-dark rounded-1 border-2" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                  Lecture
+                                </label>
+                              </div>
+                              <div class="form-check d-flex align-items-center mb-3">
+                                <input class="form-check-input me-2 border-dark rounded-1 border-2" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                  Coupon
+                                </label>
+                              </div>
+                              <div class="form-check d-flex align-items-center mb-3">
+                                <input class="form-check-input me-2 border-dark rounded-1 border-2" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                  Message
+                                </label>
+                              </div>
+                              <div class="form-check d-flex align-items-center mb-3">
+                                <input class="form-check-input me-2 border-dark rounded-1 border-2" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                  Task Menu
+                                </label>
+                              </div>
+                              <hr class="color-line my-4 opacity-100">
+                              <h4 class="fs-ml fw-bold mb-3">Deactivate Account</h4>
+                              <div class="d-flex align-items-center mb-3">
+                                <span class="material-symbols-rounded text-danger me-2 fs-4">
+                                  warning
+                                </span>
+                                <h6 class="fs-6 text-danger">This cannot be undone!</h6>
+                              </div>
+                              <button type="button" class="btn btn-outline-danger py-3 w-100 rounded-0 fw-bold fs-6 mb-3">Deactivate This Account</button>
+                            </div>
+                            <div class="modal-footer pt-3 pb-3 px-ml">
+                              <button type="button" class="btn btn-outline-success px-ml pt-2 pb-2 fs-6 fw-bold lh-sm" data-bs-dismiss="modal">Cancel</button>
+                              <button type="button" class="btn btn-success px-ml pt-2 pb-2 fs-6 fw-bold lh-sm">Update</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="border-bottom border-line">
+                    <th class="py-3" scope="row">#2</th>
+                    <td class="py-3">Zaina Goldsmith</td>
+                    <td class="py-3">zaina.goldsmith@mail.com</td>
+                    <td class="py-3">Yes</td>
+                    <td class="py-3 text-end">
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="me-4 material-symbols-rounded">
+                          visibility
+                        </span>
+                      </a>
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="material-symbols-rounded">
+                          edit
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="border-bottom border-line">
+                    <th class="py-3" scope="row">#3</th>
+                    <td class="py-3">Mahima Lopez</td>
+                    <td class="py-3">mahima.lopez@mail.com</td>
+                    <td class="py-3">Yes</td>
+                    <td class="py-3 text-end">
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="me-4 material-symbols-rounded">
+                          visibility
+                        </span>
+                      </a>
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="material-symbols-rounded">
+                          edit
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="border-bottom border-line">
+                    <th class="py-3" scope="row">#4</th>
+                    <td class="py-3">Pharrell Murray</td>
+                    <td class="py-3">pharrell.murray@mail.com</td>
+                    <td class="py-3">Yes</td>
+                    <td class="py-3 text-end">
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="me-4 material-symbols-rounded">
+                          visibility
+                        </span>
+                      </a>
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="material-symbols-rounded">
+                          edit
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="border-bottom border-line">
+                    <th class="py-3" scope="row">#5</th>
+                    <td class="py-3">Annika Mcbride</td>
+                    <td class="py-3">annika.mcbride@mail.com</td>
+                    <td class="py-3">Yes</td>
+                    <td class="py-3 text-end">
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="me-4 material-symbols-rounded">
+                          visibility
+                        </span>
+                      </a>
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="material-symbols-rounded">
+                          edit
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="border-bottom border-line">
+                    <th class="py-3" scope="row">#6</th>
+                    <td class="py-3">Fatimah Clark</td>
+                    <td class="py-3">fatimah.clark@mail.com</td>
+                    <td class="py-3">Yes</td>
+                    <td class="py-3 text-end">
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="me-4 material-symbols-rounded">
+                          visibility
+                        </span>
+                      </a>
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="material-symbols-rounded">
+                          edit
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="border-bottom border-line">
+                    <th class="py-3" scope="row">#7</th>
+                    <td class="py-3">Klaudia Rhodes</td>
+                    <td class="py-3">klaudia.rhodes@mail.com</td>
+                    <td class="py-3">Yes</td>
+                    <td class="py-3 text-end">
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="me-4 material-symbols-rounded">
+                          visibility
+                        </span>
+                      </a>
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="material-symbols-rounded">
+                          edit
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="border-bottom border-line">
+                    <th class="py-3" scope="row">#8</th>
+                    <td class="py-3">Tillie Lucero</td>
+                    <td class="py-3">tillie.lucero@mail.com</td>
+                    <td class="py-3">Yes</td>
+                    <td class="py-3 text-end">
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="me-4 material-symbols-rounded">
+                          visibility
+                        </span>
+                      </a>
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="material-symbols-rounded">
+                          edit
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="border-bottom border-line">
+                    <th class="py-3" scope="row">#9</th>
+                    <td class="py-3">Sabrina Stephenson</td>
+                    <td class="py-3">sabrina.stephenson@mail.com</td>
+                    <td class="py-3">Yes</td>
+                    <td class="py-3 text-end">
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="me-4 material-symbols-rounded">
+                          visibility
+                        </span>
+                      </a>
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="material-symbols-rounded">
+                          edit
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="border-bottom border-line">
+                    <th class="py-3" scope="row">#10</th>
+                    <td class="py-3">Annie Smith</td>
+                    <td class="py-3">annie.smith@mail.com</td>
+                    <td class="py-3">Yes</td>
+                    <td class="py-3 text-end">
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="me-4 material-symbols-rounded">
+                          visibility
+                        </span>
+                      </a>
+                      <a href="" class="d-inline-block hover-color-success">
+                        <span class="material-symbols-rounded">
+                          edit
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination d-flex justify-content-end pe-ml">
+              <li class="page-item">
+                <a class="page-link border-success text-success p-0" href="#">
+                  <span class="material-symbols-rounded fs-4 p-1">
+                  chevron_left
+                  </span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link border-success text-dark py-2 page-link-active pe-none" href="#">1</a></li>
+              <li class="page-item"><a class="page-link border-success text-dark py-2" href="#">2</a></li>
+              <li class="page-item"><a class="page-link border-success text-dark py-2" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link border-success text-success p-0" href="#">
+                  <span class="material-symbols-rounded fs-4 p-1">
+                    chevron_right
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="../main.js"></script>
+  </body>
+</html>

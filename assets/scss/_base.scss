@@ -1,0 +1,17 @@
+// *{
+//     outline: 1px solid skyblue;
+// }
+body{
+    font-family: 'Lato', sans-serif;
+    color: $color-dark;
+}
+img{
+    max-width: 100%;
+}
+a{
+    text-decoration: none;
+    color: $color-dark;
+    &:hover{
+        color: $color-dark;
+    }
+}
