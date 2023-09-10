@@ -213,3 +213,15 @@ a.page-link-active{
 .icon_less{
     display: block;
 }
+.ck-editor__editable_inline {
+	/* 設定最低高度 */
+    min-height: 205px;
+}
+.ck.ck-editor__main>.ck-editor__editable:not(.ck-focused){
+    border: none;
+    border-top: 1px solid #ccced1;
+}
+.ck.ck-toolbar{
+    border-left: none;
+    border-right: none;
+}
